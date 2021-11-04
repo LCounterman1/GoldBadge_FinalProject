@@ -1,0 +1,10 @@
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\bin\Debug\KomodoCafe_ConsoleApp.exe.config
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\bin\Debug\KomodoCafe_ConsoleApp.exe
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\bin\Debug\KomodoCafe_ConsoleApp.pdb
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\bin\Debug\KomodoCafe_ClassLibrary.dll
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\bin\Debug\KomodoCafe_ClassLibrary.pdb
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\obj\Debug\KomodoCafe_ConsoleApp.csproj.AssemblyReference.cache
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\obj\Debug\KomodoCafe_ConsoleApp.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\obj\Debug\KomodoCafe_ConsoleApp.csproj.CopyComplete
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\obj\Debug\KomodoCafe_ConsoleApp.exe
+C:\ElevenFiftyProjects\GoldBadge\GoldBadge_FinalProject\KomodoCafe_ConsoleApp\obj\Debug\KomodoCafe_ConsoleApp.pdb
