@@ -82,7 +82,7 @@ namespace KomodoCafe_ConsoleApp
                 Console.WriteLine("Please enter in a price for the new meal.");
                 try
                 {
-                    item.MealPrice = Convert.ToDecimal(Console.ReadLine());
+                    item.MealPrice = Convert.ToDouble(Console.ReadLine());
                 }
                 catch
                 {

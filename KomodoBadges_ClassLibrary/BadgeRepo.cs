@@ -23,18 +23,32 @@ namespace KomodoBadges_ClassLibrary
         }
 
 
+        private void SeedContent()
+        {
+            List<string> doorNumbers = new List<string>;
+            doorNumbers.Add(A1);+
+        }
+
+
 
         public Dictionary<int, Badge> GetBadges()
         {
+
+
             var badges = new Dictionary<int, Badge>();
-            var theBadge = new Badge(123, "A1, B1, C1");
+            var theBadge = new Badge(123, Convert.FromBase64String(A1, B1, C1));
             badges.Add(1, theBadge);
             theBadge = new Badge(456, "A2, B2, C2");
             badges.Add(2, theBadge);
-            theBadge = new Badge(789, "A3, B3, C3");
+            theBadge = new Badge(789, "A3, B3,  C3");
             badges.Add(3, theBadge);
 
             return badges;
+        }
+
+        public List<Badge> ShowAllBadges()
+        {
+            return _badgeDirectory;
         }
 
 
@@ -68,12 +82,16 @@ namespace KomodoBadges_ClassLibrary
 
         }
 
-        public bool RemoveDoorsFromExistingBadge(Badge existingBadge)
+        public bool RemoveDoorFromExistingBadge(Badge door)
         {
-            bool removeResult = _badgeDirectory.Remove(existingBadge);
+
+
+            int startingCount = _badgeDirectory.Count;
+            _badgeDirectory.Remove(door);
+            bool removeResult = _badgeDirectory.Count < startingCount ? true : false;
             return removeResult;
         }
 
-
+     
     }
 }

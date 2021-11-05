@@ -49,8 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuMethodTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MenuMethodsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace KomodoBadges_ConsoleApp
 {
+
     class ProgramUI
     {
         private readonly Badge _badges = new Badge();
         private readonly BadgeRepo _badgeRepo = new BadgeRepo();
         public void Run()
         {
-            //SeedContent();
             RunMenu();
         }
 
@@ -65,7 +65,7 @@ namespace KomodoBadges_ConsoleApp
 
             Console.WriteLine("OK. Now list a door that this badge needs access to.");
 
-            addBadge.DoorNames = Console.ReadLine().ToLower();
+            addBadge.DoorNames.Add(Console.ReadLine().ToLower());
 
 
             bool moreDoors = true;
@@ -80,7 +80,7 @@ namespace KomodoBadges_ConsoleApp
                 {
                     Console.WriteLine("List a door that this badge needs access to.");
 
-                    addBadge.DoorNames = Console.ReadLine().ToUpper();
+                    addBadge.DoorNames.Add(Console.ReadLine().ToUpper());
 
                     Console.Clear();
                 }
@@ -115,10 +115,10 @@ namespace KomodoBadges_ConsoleApp
                 Console.WriteLine("You have chosen to update an existing badge. \n" +
                     "Please enter the badge ID of the badge you would like to update.");
 
-                _badgeRepo.GetBadges();
+                ShowAllBadges();
 
                 string idBadge = Console.ReadLine();
-//trouble
+
                 Badge update = _badgeRepo.GetBadgeByID(int.Parse(idBadge));
                 
 
@@ -128,7 +128,7 @@ namespace KomodoBadges_ConsoleApp
 
                     Console.WriteLine("What would you like to do? \n" +
                         "1. Add access to a door. \n" +
-                        "2. Remove access from all doors \n" +
+                        "2. Remove access from a door \n" +
                         "3. Exit");
 
                     string editOption = Console.ReadLine();
@@ -140,7 +140,14 @@ namespace KomodoBadges_ConsoleApp
                         case "1":
                             Console.WriteLine("Which door would you like to add access to?");
 
-                            update.DoorNames = Console.ReadLine().ToUpper();
+                            update.DoorNames.Add(Console.ReadLine().ToUpper());
+                            
+
+                            Console.WriteLine("Door access added. \n" +
+                                "Press enter to continue...");
+
+                            
+
 
                             bool addMoreAccess = true;
                             while (addMoreAccess)
@@ -149,12 +156,16 @@ namespace KomodoBadges_ConsoleApp
                                 Console.WriteLine("Does this badge need access to any other doors (y/n)?");
 
                                 string moreAccess = Console.ReadLine().ToUpper();
+                                
 
                                 if (moreAccess == "Y")
                                 {
                                     Console.WriteLine("List a door that this badge needs access to.");
 
-                                    update.DoorNames = Console.ReadLine().ToUpper();
+                                    update.DoorNames.Add(Console.ReadLine().ToUpper());
+                                    Console.WriteLine("Door access added. \n" +
+                                        "Press enter to continue...");
+                                    Console.ReadLine();
                                     Console.Clear();
                                 }
                                 else if (moreAccess == "N")
@@ -175,10 +186,45 @@ namespace KomodoBadges_ConsoleApp
                             break;
 
                         case "2":
-                            Console.WriteLine("All doors have been removed from this badge. \n" +
+                            Console.WriteLine("Which door would you like to remove access from");
+
+                            update.DoorNames.Remove(Console.ReadLine());
+
+                            Console.WriteLine("Access removed. \n" +
                                 "Press enter to continue...");
 
-                            _badgeRepo.RemoveDoorsFromExistingBadge(update);
+                            bool removeMoreAccess = true;
+                            while (removeMoreAccess)
+                            {
+
+                                Console.WriteLine("Does this badge need access removed from any other doors (y/n)?");
+
+                                string moreAccess = Console.ReadLine().ToUpper();
+
+                                if (moreAccess == "Y")
+                                {
+                                    Console.WriteLine("Which door would you like to remove access from?");
+
+                                    update.DoorNames.Remove(Console.ReadLine().ToUpper());
+                                    Console.WriteLine("Access removed. \n" +
+                                        "Press enter to continue...");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                }
+                                else if (moreAccess == "N")
+                                {
+
+                                    Console.WriteLine("You have chosen not to remove any other access from doors. \n" +
+                                        "Press enter to continue...");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Please enter Y or N \n" +
+                                        "Press enter to continue...");
+                                    break;
+                                }
+                            }
 
                             break;
 
@@ -208,6 +254,8 @@ namespace KomodoBadges_ConsoleApp
 
             Dictionary<int, Badge> badges = _badgeRepo.GetBadges();
 
+            
+
             foreach (KeyValuePair<int, Badge> kvp in badges)
             {
 
@@ -217,6 +265,17 @@ namespace KomodoBadges_ConsoleApp
 
                 Console.WriteLine("--------------------------------");
             }
+
+            List<Badge> badgeList = _badgeRepo.ShowAllBadges();
+
+            foreach (Badge b in badgeList)
+            {
+                Console.WriteLine("Badge ID = {0} \n" +
+                    "Door Access = {1}", b.BadgeID, b.DoorNames);
+                Console.WriteLine("--------------------------------");
+            }
+
+
             Console.ReadKey();
         }
     }

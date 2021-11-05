@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace KomodoClaims_ConsoleApp
 {
-
+   
     //take care of next claim??
-    //displaying list of claims?? 
+    //displaying list of claims??
+    //queue is empty??? seed content below...
+    //add new claim but not displaying.
 
 
 
@@ -151,7 +153,7 @@ namespace KomodoClaims_ConsoleApp
             //Damage Amount
             Console.WriteLine("How much did the damage amount to? \n" +
                 "Please enter the monetary damage amount.");
-            claim.ClaimAmount = int.Parse(Console.ReadLine());
+            claim.ClaimAmount = Convert.ToDouble(Console.ReadLine());
 
             //Incident Date
             Console.WriteLine("Please enter in the date that the incident happened.");

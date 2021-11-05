@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoorNames\A1.cs" />
+    <Compile Include="DoorNames\A2.cs" />
+    <Compile Include="DoorNames\B1.cs" />
+    <Compile Include="DoorNames\B2.cs" />
+    <Compile Include="DoorNames\C1.cs" />
+    <Compile Include="DoorNames\C2.cs" />
+    <Compile Include="DoorNames\IDoors.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,5 +63,6 @@
       <Name>KomodoBadges_ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
